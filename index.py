@@ -40,6 +40,21 @@ class LinkedList:
         
       return current
 
+    def delmid(self, n):
+      current = self.head
+      if current.data == n:
+          print('Can\'t delete first node')
+          return
+      while current.next:
+          if current.next.data == n:
+              if current.next.next:
+                  current.next = current.next.next
+                  return
+              else:
+                  print('Can\'t delete last node')
+                  return
+          current = current.next
+
 l= LinkedList()
 l.insert(15)
 l.insert(14)
@@ -61,3 +76,4 @@ l.removeDups()
 l.printl()
 print "+++++++++++++++"
 print l.kth(3).data
+l.delmid(159)
